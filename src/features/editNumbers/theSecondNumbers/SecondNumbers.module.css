@@ -1,0 +1,25 @@
+.numbersComponentContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptionContainer {
+    display: flex;
+    margin: 20px 0 20px 0;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.numbersContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
