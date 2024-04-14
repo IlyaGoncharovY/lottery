@@ -1,8 +1,10 @@
 import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
 
+import {numberReducer} from '../features/editNumbers';
+
 export const store = configureStore({
   reducer: {
-   
+    numbersToChoose: numberReducer,
   },
 });
 
