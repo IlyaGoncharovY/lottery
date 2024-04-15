@@ -1,10 +1,12 @@
 import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
 
 import {numberReducer} from '../features/editNumbers';
+import {footerReducer} from '../features/footer';
 
 export const store = configureStore({
   reducer: {
     numbersToChoose: numberReducer,
+    selectedNumbers: footerReducer,
   },
 });
 
