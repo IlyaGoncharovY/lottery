@@ -1,0 +1,10 @@
+.footerContainer {
+    margin: 43px;
+}
+
+.button {
+    width: 178px;
+    height: 43px;
+    border-radius: 40px;
+    font-size: 14px;
+}

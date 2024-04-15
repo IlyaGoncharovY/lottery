@@ -1,0 +1,4 @@
+.numbersComponentContainer {
+    display: flex;
+    flex-direction: column;
+}
