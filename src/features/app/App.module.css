@@ -1,3 +1,20 @@
-.appContainer {
+body {margin:0;padding:0}
 
+.appContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    background: linear-gradient(180deg, #4568DC 0%, #B06AB3 100%);
+}
+
+.lotteryContainer {
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
