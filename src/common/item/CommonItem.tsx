@@ -1,7 +1,7 @@
 import {FC} from 'react';
 
-import {isCheckNumber, numberType} from '../../features/editNumbers/reducer/numberReducer.ts';
 import {useAppDispatch} from '../../store';
+import {isCheckNumber, numberType} from '../../features/editNumbers/reducer/numberReducer.ts';
 
 import s from './CommonItem.module.css';
 
