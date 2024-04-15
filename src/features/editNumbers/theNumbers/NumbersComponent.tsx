@@ -1,21 +1,28 @@
-import {useAppSelector} from '../../../store';
+import {useEffect} from 'react';
 
 import {CommonItem, WrapperComponent} from '../../../common';
+import {useAppDispatch, useAppSelector} from '../../../store';
+import {addSelectedNumber} from '../../footer/reducer/footerReducer.ts';
 
 import s from './Numbers.module.css';
 
 export const NumbersComponent = () => {
 
-  const numbersArr = useAppSelector(state =>
-    state.numbersToChoose.numbersArr);
-
-  const firstPressCount = useAppSelector(state =>
-    state.numbersToChoose.pressedCount);
-  const secondPressCount = useAppSelector(state =>
-    state.numbersToChoose.pressSecondCount);
+  const {
+    pressedCount,
+    pressSecondCount,
+    numbersArr,
+  } = useAppSelector(state =>
+    state.numbersToChoose);
 
   const first = numbersArr.filter(el => el.id <= 19);
   const second = numbersArr.filter(el => el.id >= 20);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(addSelectedNumber(numbersArr.filter(numberEl => numberEl.isCheck)));
+  }, [numbersArr, dispatch]);
 
   return (
     <div className={s.numbersComponentContainer}>
@@ -24,7 +31,7 @@ export const NumbersComponent = () => {
           <CommonItem
             key={firstNumber.id}
             numberEl={firstNumber}
-            pressCount={firstPressCount}
+            pressCount={pressedCount}
             countLength={8}
           />)}
       </WrapperComponent>
@@ -33,7 +40,7 @@ export const NumbersComponent = () => {
           <CommonItem
             key={secondNumber.id}
             numberEl={secondNumber}
-            pressCount={secondPressCount}
+            pressCount={pressSecondCount}
             countLength={1}
           />)}
       </WrapperComponent>
