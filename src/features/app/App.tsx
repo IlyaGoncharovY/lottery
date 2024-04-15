@@ -1,12 +1,11 @@
-import {FirstNumbersComponent, SecondNumbersComponent} from '../editNumbers';
+import {NumbersComponent} from '../editNumbers';
 import {FooterComponent} from '../footer';
 
 export const App = () => {
 
   return (
     <div>
-      <FirstNumbersComponent/>
-      <SecondNumbersComponent/>
+      <NumbersComponent/>
       <FooterComponent/>
     </div>
   );
