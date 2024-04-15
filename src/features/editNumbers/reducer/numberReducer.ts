@@ -7,14 +7,13 @@ export type numberType = {
 }
 
 interface initialStateType {
-    firstNumbers: numberType[]
-    secondNumbers: numberType[]
+    numbersArr: numberType[]
     pressedCount: number
     pressSecondCount: number
 }
 
 const initialState: initialStateType = {
-  firstNumbers: [
+  numbersArr: [
     {id: 1, value: 1, isCheck: false},
     {id: 2, value: 2, isCheck: false},
     {id: 3, value: 3, isCheck: false},
@@ -34,8 +33,6 @@ const initialState: initialStateType = {
     {id: 17, value: 17, isCheck: false},
     {id: 18, value: 18, isCheck: false},
     {id: 19, value: 19, isCheck: false},
-  ],
-  secondNumbers: [
     {id: 20, value: 1, isCheck: false},
     {id: 21, value: 2, isCheck: false},
   ],
@@ -47,26 +44,22 @@ const numberReducer = createSlice({
   name: 'numbersSlice',
   initialState,
   reducers: {
-    checkFirstNumber: (state, action: PayloadAction<number>) => {
-      const numberToUpdate = state.firstNumbers.find(number => number.id === action.payload);
+    isCheckNumber: (state, action: PayloadAction<number>) => {
+      const numberToUpdate = state.numbersArr.find(number => number.id === action.payload);
       if (numberToUpdate) {
-        if (state.pressedCount < 8 || numberToUpdate.isCheck) {
-          numberToUpdate.isCheck = !numberToUpdate.isCheck;
-          state.pressedCount += numberToUpdate.isCheck ? 1 : -1;
-        }
-      }
-    },
-    checkSecondNumber: (state, action: PayloadAction<number>) => {
-      const numberToUpdate = state.secondNumbers.find(number => number.id === action.payload);
-      if (numberToUpdate) {
-        if (state.pressSecondCount < 1 || numberToUpdate.isCheck) {
-          numberToUpdate.isCheck = !numberToUpdate.isCheck;
-          state.pressSecondCount += numberToUpdate.isCheck ? 1 : -1;
+        if (state.pressedCount < 9 || numberToUpdate.isCheck) {
+          if (numberToUpdate.id <= 19) {
+            numberToUpdate.isCheck = !numberToUpdate.isCheck;
+            state.pressedCount += numberToUpdate.isCheck ? 1 : -1;
+          } else if (state.pressSecondCount < 1 || numberToUpdate.isCheck) {
+            numberToUpdate.isCheck = !numberToUpdate.isCheck;
+            state.pressSecondCount += numberToUpdate.isCheck ? 1 : -1;
+          }
         }
       }
     },
   },
 });
-export const {checkFirstNumber, checkSecondNumber} = numberReducer.actions;
+export const {isCheckNumber} = numberReducer.actions;
 
 export default numberReducer.reducer;
