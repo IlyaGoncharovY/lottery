@@ -58,8 +58,22 @@ const numberReducer = createSlice({
         }
       }
     },
+    skipIsCheckProperty: (state) => {
+      state.numbersArr.map(el=> el.isCheck = false);
+      state.pressedCount = 0;
+      state.pressSecondCount = 0;
+    },
+    changeNumbersValue: (state) => {
+      state.numbersArr.forEach((number) => {
+        number.value = Math.floor(Math.random() * 100);
+      });
+    },
   },
 });
-export const {isCheckNumber} = numberReducer.actions;
+export const {
+  isCheckNumber,
+  skipIsCheckProperty,
+  changeNumbersValue,
+} = numberReducer.actions;
 
 export default numberReducer.reducer;
