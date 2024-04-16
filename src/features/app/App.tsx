@@ -1,6 +1,6 @@
-import {NumbersComponent} from '../editNumbers';
-import {FooterComponent} from '../footer';
 import {Header} from '../header';
+import {FooterComponent} from '../footer';
+import {NumbersComponent} from '../editNumbers';
 
 import s from './App.module.css';
 
