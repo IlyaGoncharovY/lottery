@@ -65,8 +65,8 @@ export const FooterComponent = () => {
         {createTicketLoading ? 'Отправка' : 'Показать результат'}
       </button>
       <div>
-        {createTicketError && <h1>Ошибка...</h1>}
-        {isWon ? <h1>Поздравляю с победой!!</h1> : <></>}
+        {createTicketError && <h1>Ошибка... И скорее всего проигрышь (</h1>}
+        {isWon ? <h1>Поздравляю с победой!! загляни в network</h1> : <></>}
       </div>
     </div>
   );
