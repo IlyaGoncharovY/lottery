@@ -1,5 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
+import {numberForApp} from '../../../common';
+
 export type numberType = {
     id: number,
     value: number,
@@ -47,11 +49,11 @@ const numberReducer = createSlice({
     isCheckNumber: (state, action: PayloadAction<number>) => {
       const numberToUpdate = state.numbersArr.find(number => number.id === action.payload);
       if (numberToUpdate) {
-        if (state.pressedCount < 9 || numberToUpdate.isCheck) {
+        if (state.pressedCount < numberForApp.pressedFirsCount || numberToUpdate.isCheck) {
           if (numberToUpdate.id <= 19) {
             numberToUpdate.isCheck = !numberToUpdate.isCheck;
             state.pressedCount += numberToUpdate.isCheck ? 1 : -1;
-          } else if (state.pressSecondCount < 1 || numberToUpdate.isCheck) {
+          } else if (state.pressSecondCount < numberForApp.pressSecondCount || numberToUpdate.isCheck) {
             numberToUpdate.isCheck = !numberToUpdate.isCheck;
             state.pressSecondCount += numberToUpdate.isCheck ? 1 : -1;
           }
