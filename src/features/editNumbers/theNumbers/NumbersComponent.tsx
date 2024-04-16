@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 
-import {CommonItem, WrapperComponent} from '../../../common';
+import {CommonItem, numberForApp, WrapperComponent} from '../../../common';
 import {useAppDispatch, useAppSelector} from '../../../store';
 import {addSelectedNumber} from '../../footer/reducer/footerReducer.ts';
 
@@ -32,7 +32,7 @@ export const NumbersComponent = () => {
             key={firstNumber.id}
             numberEl={firstNumber}
             pressCount={pressedCount}
-            countLength={8}
+            countLength={numberForApp.countFirsLength}
           />)}
       </WrapperComponent>
       <WrapperComponent title={'Поле 2'} description={'Отметьте 1 число.'}>
@@ -41,7 +41,7 @@ export const NumbersComponent = () => {
             key={secondNumber.id}
             numberEl={secondNumber}
             pressCount={pressSecondCount}
-            countLength={1}
+            countLength={numberForApp.countSecondLength}
           />)}
       </WrapperComponent>
     </div>

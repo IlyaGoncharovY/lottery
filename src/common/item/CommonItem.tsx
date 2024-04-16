@@ -1,4 +1,4 @@
-import {FC} from 'react';
+import {FC, memo} from 'react';
 
 import {useAppDispatch} from '../../store';
 import {isCheckNumber, numberType} from '../../features/editNumbers/reducer/numberReducer.ts';
@@ -11,7 +11,14 @@ interface ICommonItem {
     countLength: number
 }
 
-export const CommonItem: FC<ICommonItem> = ({
+/**
+ * component for render item array numbersArr
+ * @param numberEl: numberType
+ * @param pressCount - number
+ * @param countLength - number
+ * @constructor
+ */
+export const CommonItem: FC<ICommonItem> = memo(({
   numberEl,
   pressCount,
   countLength,
@@ -36,4 +43,4 @@ export const CommonItem: FC<ICommonItem> = ({
       </button>
     </div>
   );
-};
+});

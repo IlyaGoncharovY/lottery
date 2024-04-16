@@ -8,6 +8,13 @@ interface IWrapperComponent {
     children: ReactNode
 }
 
+/**
+ * component wrapper for numberArr
+ * @param title
+ * @param description
+ * @param children
+ * @constructor
+ */
 export const WrapperComponent:FC<IWrapperComponent> = ({
   title,
   description,
