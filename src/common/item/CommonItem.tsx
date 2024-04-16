@@ -11,6 +11,13 @@ interface ICommonItem {
     countLength: number
 }
 
+/**
+ * component for render item array numbersArr
+ * @param numberEl: numberType
+ * @param pressCount - number
+ * @param countLength - number
+ * @constructor
+ */
 export const CommonItem: FC<ICommonItem> = ({
   numberEl,
   pressCount,
