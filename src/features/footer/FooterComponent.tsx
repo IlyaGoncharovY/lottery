@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useCallback, useEffect} from 'react';
 
 import {numberForApp} from '../../common';
 import {useAppDispatch, useAppSelector} from '../../store';
@@ -30,7 +30,7 @@ export const FooterComponent = () => {
     generateRandomNumbers();
   }, []);
 
-  const handleShowResult = async () => {
+  const handleShowResult = useCallback( async () => {
     const matchingNumbers = selectedNumbers.filter(num => randomNumbers.includes(num.value));
     const filteredFirstNumbers = selectedNumbers.filter(num => num.id >= 1 && num.id <= 19);
     const filteredSecondNumbers = selectedNumbers.filter(num => num.id >= 20 && num.id <= 21);
@@ -51,7 +51,7 @@ export const FooterComponent = () => {
       dispatch(skipIsCheckProperty());
       dispatch(clearSelectedNumbersArray());
     }
-  };
+  },[selectedNumbers, randomNumbers]);
 
   const buttonDisabled = selectedNumbers.length === numberForApp.selectedNumbersLength;
 
@@ -66,7 +66,7 @@ export const FooterComponent = () => {
       </button>
       <div>
         {createTicketError && <h1>Ошибка... И скорее всего проигрышь (</h1>}
-        {isWon ? <h1>Поздравляю с победой!! загляни в network</h1> : <></>}
+        {isWon && <h1>Поздравляю с победой!! загляни в network</h1>}
       </div>
     </div>
   );
